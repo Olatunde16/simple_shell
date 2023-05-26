@@ -52,3 +52,4 @@ void printstr(char *str);
 void _rmline(char *str);
 void _strcpy(char *here, char *there);
 int _strlen(char *str, int len);
+void ignore(char *input);
