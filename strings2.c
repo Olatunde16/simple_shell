@@ -54,16 +54,16 @@ char *_strcat(char *d, char *s)
 int _strspn(char *str1, char *str2)
 {
 	int c = 0;
-	int fix-in = 0;
+	int fixn = 0;
 
 	while (str1[c] != '\0')
 	{
 		if (_strchr(str2, str1[c]) == NULL)
 			break;
-		fix-in++;
+		fixn++;
 		c++;
 	}
-	return (fix-in);
+	return (fixn);
 }
 
 /**
@@ -96,7 +96,7 @@ int _strcspn(char *str1, char *str2)
  *Return: pointer to the first occurence of c in str
  */
 
-char *_strchr(char *s, char c)
+char *_strchr(char *str, char c)
 {
 	int c;
 
