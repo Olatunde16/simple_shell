@@ -7,9 +7,11 @@
  *
  *Return: void, return nothing
  */
-void print(char *str, int c)
+void print(char *str, int d)
 {
-	for (int c = 0; str[c] != '\0'; c++)
+	int c = 0;
+
+	for (; str[c] != '\0'; c++)
 		write(d, &str[c], 1);
 }
 
@@ -44,9 +46,9 @@ void rm_addedline(char *str)
 
 void _strcpy(char *here, char *there)
 {
-	int c;
+	int c = 0;
 
-	for (c = 0; here[c] != '\0'; c++)
+	for (; here[c] != '\0'; c++)
 		there[c] = here[c];
 	there[c] = '\0';
 }
@@ -58,11 +60,13 @@ void _strcpy(char *here, char *there)
  * Return: length of the str
  */
 
-int _strlen(char *str, int len)
+int _strlen(char *str)
 {
+	int len = 0;
+
 	if (str == NULL)
 		return (len);
-	for (len = 0; str[len] != '\0'; len++)
+	for (; str[len] != '\0'; len++)
 		;
 	return (len);
 }
