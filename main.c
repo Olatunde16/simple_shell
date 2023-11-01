@@ -23,6 +23,7 @@ int main(void)
 		}
 		
 		char *token = strtok(input, " ");
+		
 		num_args = 0;
 		
 		while (token != NULL) {
@@ -33,17 +34,20 @@ int main(void)
 		args[num_args] = NULL;
 		pid_t pid = fork();
 		
-		if (pid == 0) {
+		if (pid == 0) 
+		{
 			execvp(args[0], args);
 			perror("Command not found");
 			exit(1);
 		} 
 		
-		else if (pid > 0) {
+		else if (pid > 0) 
+		{
 			wait(NULL);
 		}
 			
-		else {
+		else 
+		{
 			perror("Fork failed");
 		}
 	}
