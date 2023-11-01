@@ -49,7 +49,6 @@ void define_alias(char *name, char *value) {
         }
     }
 
-    // If not, add a new alias
     if (num_aliases < MAX_ALIASES) {
         strcpy(aliases[num_aliases].name, name);
         strcpy(aliases[num_aliases].value, value);
@@ -65,33 +64,25 @@ int main() {
     int num_args;
 
     while (1) {
-        // Display prompt
         printf("SimpleShell (PID: %d)> ", getpid());
 
-        // Get user input
         fgets(input, MAX_INPUT_LENGTH, stdin);
 
-        // Remove newline character
         input[strlen(input) - 1] = '\0';
 
-        // Exit if user enters "exit"
         if (strcmp(input, "exit") == 0) {
             break;
         } else if (strcmp(input, "alias") == 0) {
-            // Print all aliases
             print_aliases();
         } else if (strstr(input, "alias ") == input) {
-            // Print specific alias
             char *alias_name = input + strlen("alias ");
             print_alias(alias_name);
         } else if (strstr(input, "alias ") != NULL && strstr(input, "='") != NULL) {
-            // Define or redefine an alias
             char *alias_def = input + strlen("alias ");
             char *name = strtok(alias_def, "='");
             char *value = strtok(NULL, "'");
             define_alias(name, value);
         } else {
-            // Tokenize the input into arguments
             char *token = strtok(input, " ");
             num_args = 0;
 
@@ -100,15 +91,11 @@ int main() {
                 token = strtok(NULL, " ");
             }
 
-            // Add a NULL pointer to the end of the args array (required by execvp)
             args[num_args] = NULL;
 
-            // Check for logical operators
             int result = execute_command(args);
 
-            // Handle && and ||
             if (result == 0 && strstr(input, "&&") != NULL) {
-                // Execute the next command only if the previous one succeeded
                 token = strtok(input, "&&");
                 token = strtok(NULL, "&&");
                 if (token != NULL) {
@@ -122,7 +109,6 @@ int main() {
                     result = execute_command(args);
                 }
             } else if (result != 0 && strstr(input, "||") != NULL) {
-                // Execute the next command only if the previous one failed
                 token = strtok(input, "||");
                 token = strtok(NULL, "||");
                 if (token != NULL) {
