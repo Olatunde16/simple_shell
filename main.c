@@ -2,10 +2,12 @@
 
 int main() {
     char input[MAX_INPUT_LENGTH];
+    char *args[MAX_ARGS];
+    int num_args;
 
     while (1) {
         // Display prompt
-        printf("SimpleShell> ");
+        printf("Simple-Shell (PID: %d)> ", getpid());
 
         // Get user input
         fgets(input, MAX_INPUT_LENGTH, stdin);
@@ -18,15 +20,27 @@ int main() {
             break;
         }
 
+	// Tozkenize the input into arguments
+	char *token = strtok(input, " ");
+	num_args = 0;
+
+	while (token != NULL){
+		args[num_args++] = token;
+		token = strtok(NULL, " ");
+	}
+
+	// Add a NULL pointer to the end of the args array (execvp required)
+	args[num_args] = NULL;
+
         // Fork a new process
         pid_t pid = fork();
 
         if (pid == 0) {
             // Child process
             // Execute the command
-            execlp(input, input, (char *)NULL);
+            execvp(args[0], args);
 
-            // If execlp() fails, print an error message
+            // If execvp() fails, print an error message
             perror("Command not found");
             exit(1);
         } else if (pid > 0) {
