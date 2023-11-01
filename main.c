@@ -13,22 +13,19 @@ int main(void)
 	char *args[MAX_ARGS];
 	int num_args;
 	
-	while (1) 
-	{
+	while (1) {
 		printf("Simple-Shell (PID: %d)> ", getpid());
 		fgets(input, MAX_INPUT_LENGTH, stdin);
 		input[strlen(input) - 1] = '\0';
 		
-		if (strcmp(input, "exit") == 0) 
-		{
+		if (strcmp(input, "exit") == 0) {
 			break;
 		}
 		
 		char *token = strtok(input, " ");
 		num_args = 0;
 		
-		while (token != NULL) 
-		{
+		while (token != NULL) {
 			args[num_args++] = token;
 			token = strtok(NULL, " ");
 		}
@@ -36,20 +33,17 @@ int main(void)
 		args[num_args] = NULL;
 		pid_t pid = fork();
 		
-		if (pid == 0) 
-		{
+		if (pid == 0) {
 			execvp(args[0], args);
 			perror("Command not found");
 			exit(1);
 		} 
 		
-		else if (pid > 0) 
-		{
+		else if (pid > 0) {
 			wait(NULL);
 		}
 			
-		else 
-		{
+		else {
 			perror("Fork failed");
 		}
 	}
