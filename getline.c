@@ -9,31 +9,29 @@ char *custom_getline() {
     static size_t size = 0;
 
     while (1) {
-        // Check if we need to read more data into the buffer
         if (pos >= size) {
             size_t bytesRead = read(STDIN_FILENO, buffer, sizeof(buffer));
             if (bytesRead <= 0) {
-                return NULL; // End of input or error
+                return NULL;
             }
             size = bytesRead;
             pos = 0;
         }
 
-        // Look for a newline character
         while (pos < size && buffer[pos] != '\n') {
             pos++;
         }
 
         if (pos < size) { // Found a newline character
-            buffer[pos] = '\0'; // Replace newline with null terminator
+            buffer[pos] = '\0';
             char *line = buffer;
             pos++;
             return line;
-        } else if (size == sizeof(buffer) - 1) { // Line too long, split it
-            buffer[size] = '\0'; // Add null terminator
+        } else if (size == sizeof(buffer) - 1) { 
+            buffer[size] = '\0';
             char *line = buffer;
             pos = size;
-            size = 0; // Force reading new input
+            size = 0;
             return line;
         }
     }
@@ -41,7 +39,7 @@ char *custom_getline() {
 
 int main() {
     while (1) {
-        printf("SimpleShell> ");
+        printf("Simple-Shell> ");
         char *line = custom_getline();
 
         if (line == NULL) {
