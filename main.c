@@ -13,14 +13,16 @@ int main(void)
 	char *args[MAX_ARGS];
 	int num_args;
 	
-	while (1) {
+	while (1) 
+	{
 		printf("Simple-Shell (PID: %d)> ", getpid());
 		fgets(input, MAX_INPUT_LENGTH, stdin);
 		input[strlen(input) - 1] = '\0';
 		
-		if (strcmp(input, "exit") == 0) {
+		if (strcmp(input, "exit") == 0) 
+		
 			break;
-		}
+		
 		
 		char *token = strtok(input, " ");
 		
