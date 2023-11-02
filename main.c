@@ -11,8 +11,7 @@ int main(void)
 {
 	char input[MAX_INPUT_LENGTH];
 	char *args[MAX_ARGS];
-	int num_args;
-	
+	int num_args;	
 	while (1) 
 	{
 		printf("Simple-Shell (PID: %d)> ", getpid());
@@ -28,7 +27,8 @@ int main(void)
 		
 		num_args = 0;
 		
-		while (token != NULL) {
+		while (token != NULL) 
+		{
 			args[num_args++] = token;
 			token = strtok(NULL, " ");
 		}
