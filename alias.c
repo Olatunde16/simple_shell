@@ -15,7 +15,8 @@
 
 void print_aliases(void) 
 {
-    for (int i = 0; i < num_aliases; i++) {
+    for (int i = 0; i < num_aliases; i++) 
+    {
         printf("%s='%s'\n", aliases[i].name, aliases[i].value);
     }
 }
@@ -33,9 +34,10 @@ void print_alias(char *name)
 
 void define_alias(char *name, char *value) 
 {
-    // Check if the alias already exists
-    for (int i = 0; i < num_aliases; i++) {
-        if (strcmp(aliases[i].name, name) == 0) {
+    for (int i = 0; i < num_aliases; i++) 
+    {
+        if (strcmp(aliases[i].name, name) == 0) 
+        {
             strcpy(aliases[i].value, value);
             return;
         }
@@ -81,7 +83,8 @@ int main()
             char *token = strtok(input, " ");
             num_args = 0;
 
-            while (token != NULL) {
+            while (token != NULL) 
+            {
                 args[num_args++] = token;
                 token = strtok(NULL, " ");
             }
@@ -90,10 +93,12 @@ int main()
 
             int result = execute_command(args);
 
-            if (result == 0 && strstr(input, "&&") != NULL) {
+            if (result == 0 && strstr(input, "&&") != NULL) 
+            {
                 token = strtok(input, "&&");
                 token = strtok(NULL, "&&");
-                if (token != NULL) {
+                if (token != NULL) 
+                {
                     num_args = 0;
                     token = strtok(token, " ");
                     while (token != NULL) {
