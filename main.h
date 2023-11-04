@@ -20,3 +20,4 @@ int num_aliases = 0;
 
 void execute_command(char *args[]);
 void execute_commands_from_file(const char *filename);
+int main(int argc, char *argv[]);
