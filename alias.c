@@ -15,7 +15,8 @@
 
 void print_aliases(void) 
 {
-    for (int i = 0; i < num_aliases; i++) {
+    for (int i = 0; i < num_aliases; i++) 
+    {
         printf("%s='%s'\n", aliases[i].name, aliases[i].value);
     }
 }
