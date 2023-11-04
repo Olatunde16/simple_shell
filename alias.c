@@ -2,17 +2,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "main.h"
 
 /**
-  * main - Checks if user entered "alias" command
-  * print_aliases: Prints all aliases.
-  * print_alias: Prints a specific alias by name.
-  * define_alias: Defines or redefines an alias with a given name and value.
-  *
-  * Return: 0
-  */
+* main - Checks if user entered "alias" command
+* print_aliases: Prints all aliases.
+* print_alias: Prints a specific alias by name.
+* define_alias: Defines or redefines an alias with a given name and value.
+*
+* Return: 0
+*/
 
-void print_aliases() 
+void print_aliases(void) 
 {
     for (int i = 0; i < num_aliases; i++) {
         printf("%s='%s'\n", aliases[i].name, aliases[i].value);
