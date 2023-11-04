@@ -7,7 +7,8 @@
 #define MAX_ALIAS_NAME 64
 #define MAX_ALIAS_VALUE 256
 
-typedef struct {
+typedef struct 
+{
     char name[MAX_ALIAS_NAME];
     char value[MAX_ALIAS_VALUE];
 } Alias;
@@ -24,13 +25,15 @@ int num_aliases = 0;
   * Return: 0
   */
 
-void print_aliases() {
+void print_aliases() 
+{
     for (int i = 0; i < num_aliases; i++) {
         printf("%s='%s'\n", aliases[i].name, aliases[i].value);
     }
 }
 
-void print_alias(char *name) {
+void print_alias(char *name) 
+{
     for (int i = 0; i < num_aliases; i++) {
         if (strcmp(aliases[i].name, name) == 0) {
             printf("%s='%s'\n", aliases[i].name, aliases[i].value);
@@ -40,7 +43,8 @@ void print_alias(char *name) {
     printf("Alias '%s' not found.\n", name);
 }
 
-void define_alias(char *name, char *value) {
+void define_alias(char *name, char *value) 
+{
     // Check if the alias already exists
     for (int i = 0; i < num_aliases; i++) {
         if (strcmp(aliases[i].name, name) == 0) {
@@ -49,7 +53,8 @@ void define_alias(char *name, char *value) {
         }
     }
 
-    if (num_aliases < MAX_ALIASES) {
+    if (num_aliases < MAX_ALIASES) 
+    {
         strcpy(aliases[num_aliases].name, name);
         strcpy(aliases[num_aliases].value, value);
         num_aliases++;
@@ -58,12 +63,14 @@ void define_alias(char *name, char *value) {
     }
 }
 
-int main() {
+int main() 
+{
     char input[MAX_INPUT_LENGTH];
     char *args[MAX_ARGS];
     int num_args;
 
-    while (1) {
+    while (1) 
+    {
         printf("SimpleShell (PID: %d)> ", getpid());
 
         fgets(input, MAX_INPUT_LENGTH, stdin);
