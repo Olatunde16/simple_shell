@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "main.h"
 
-#define MAX_INPUT_LENGTH 1024
-
-char *custom_getline() {
+char *custom_getline() 
+{
     static char buffer[MAX_INPUT_LENGTH];
     static size_t pos = 0;
     static size_t size = 0;
