@@ -20,7 +20,7 @@ int num_aliases = 0;
 
 void print_aliases(void);
 void print_alias(char *name);
-
+void define_alias(char *name, char *value);
 void execute_command(char *args[]);
 void execute_commands_from_file(const char *filename);
 int main(int argc, char *argv[]);
