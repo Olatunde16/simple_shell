@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 
 #define MAX_INPUT_LENGTH 1024
+#define MAX_ARGS 64
 #define MAX_ALIASES 64
 #define MAX_ALIAS_NAME 64
 #define MAX_ALIAS_VALUE 256
