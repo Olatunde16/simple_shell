@@ -1,15 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
+#include "main.h"
 
-// Declaration for the environment variables
 extern char **environ;
 
-int main() {
-    // Print environment variables
+int main() 
+{
     char **env = environ;
-    while (*env != NULL) {
+    while (*env != NULL) 
+    {
         printf("%s\n", *env);
         env++;
     }
