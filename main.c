@@ -7,7 +7,8 @@
  *
  * Return: 0
  */
-int main(void) 
+
+int main(void)
 {
 	char input[MAX_INPUT_LENGTH];
 	char *args[MAX_ARGS];
@@ -55,4 +56,4 @@ while (1)
 }
 	
 	return (0);
-}
+	}
