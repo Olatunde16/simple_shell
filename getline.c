@@ -1,10 +1,16 @@
 #include "main.h"
+/**
+    * main -
+    * custom_getline:
+    *
+    * Return: Always 0
+    */
 
 char *custom_getline() 
 {
     static char buffer[MAX_INPUT_LENGTH];
-    static size_t pos = 0;
-    static size_t size = 0;
+    static size_t pos = 1;
+    static size_t size = 1;
 
     while (1) {
         if (pos >= size) {
