@@ -1,5 +1,19 @@
 #include "main.h"
 
+/*
+ * get_command_path - Searches for the full path of a command in the directories specified by the PATH environment variable.
+ *
+ * This function takes a command name as input and searches for it in the directories specified by the PATH environment variable.
+ * If the command is found and is executable, it returns the full path of the command. If the command is not found or is not
+ * executable in any of the specified directories, it returns NULL.
+ *
+ * command: The name of the command to search for.
+ *
+ * Return Value:
+ *   - On success, a dynamically allocated string containing the full path of the command (which should be freed by the caller).
+ *   - On failure (command not found or not executable), NULL.
+ */
+
 char *get_command_path(char *command) {
     char *path = getenv("PATH");
     char *path_copy = strdup(path);
