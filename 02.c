@@ -38,6 +38,19 @@ void tokenize_input(char *input, char *args[])
 	args[num_args] = NULL;
 }
 
+/**
+ * execute_command - Executes a command in a child process
+ *
+ * args:  An array of strings where the first element is the 
+ * command and the subsequent elements are its arguments. 
+ * The last element should be NULL as required by execvp().
+ *
+ * Return:
+ * - Returns the exit status of the child process if the
+ *   command was executed successfully.
+ * - Returns -1 if fork() fails
+ */
+
 int execute_command(char *args[]) 
 {
 	pid_t pid = fork();
