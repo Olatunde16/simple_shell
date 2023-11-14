@@ -67,9 +67,15 @@ int execute_command(char *args[])
 }
 
 /**
- * main -
- * input:
- * args:
+ * main - The main function of the simple shell program.
+ * It handles user's input, executes command, and
+ * manages processes.
+ *
+ * input: A character array to store the user's input 
+ * and tokenize the input in the simple shell
+ *
+ * args: the array of strings where the tokenized
+ * input will be stored
  *
  * Return: 0
  */

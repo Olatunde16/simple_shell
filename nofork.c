@@ -1,5 +1,20 @@
 #include "main.h"
 
+/**
+ * execute_command - creates a child process and
+ * executes command within that process. 
+ *
+ * args: An array of strings where the first element 
+ * is the command and the subsequent elements are its 
+ * arguments. The last element should be NULL as required 
+ * by execvp().
+ *
+ * Return:
+ * - The exit status of the child process if the command was 
+ *   executed successfully.
+ * - Returns -1 if fork() fails. 
+ */
+
 int execute_command(char *args[]) 
 {
 	pid_t pid = fork();
@@ -27,6 +42,15 @@ int execute_command(char *args[])
 		return (-1);
 	}
 }
+
+/**
+ * main - 
+ *
+ * input:
+ * args:
+ *
+ * Return:
+ */
 
 int main(void) 
 {
