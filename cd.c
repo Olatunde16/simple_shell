@@ -1,8 +1,13 @@
 #include "main.h"
 
 /**
- * tokenize_input - 
- * input:
+ * tokenize_input - Tokenizes a user input string into an array of arguments.
+ *
+ * This function takes a user input string and tokenizes it into separate arguments.
+ * The input string is modified in place, and the resulting arguments are stored
+ * in the provided array 'args'. The last element of the 'args' array is always set
+ * to NULL, following the conventions required for execvp.
+ * input: 
  * args:
  *
  * Return:
