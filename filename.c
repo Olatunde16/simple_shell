@@ -74,9 +74,32 @@ void execute_commands_from_file(const char *filename)
 		}
 		
 		args[num_args] = NULL;
+
+		if (strcmp(args[0], "setenv") == 0
+		{
+			if (num_args == 3) 
+			{
+				if (setenv(args[1], args[2], 1) != 0)
+					fprintf(stderr, "Error setting environment variable: %s\n", args[1]);
+			} 
+			
+			else
+				fprintf(stderr, "Usage: setenv VARIABLE VALUE\n");
+		} 
 		
-		execute_command(args);
+		else if (strcmp(args[0], "unsetenv") == 0) 
+		{
+			if (num_args == 2) 
+				if (unsetenv(args[1]) != 0) 
+					fprintf(stderr, "Error unsetting environment variable: %s\n", args[1]);
+		} 
+		
+		else
+			fprintf(stderr, "Usage: unsetenv VARIABLE\n");
 	}
+	
+	else
+		execute_command(args);
 	
 	fclose(file);
 }
@@ -143,9 +166,32 @@ int main(int argc, char *argv[])
 			
 			args[num_args] = NULL;
 			
-			execute_command(args);
+			if (strcmp(args[0], "setenv") == 0) 
+			{
+				if (num_args == 3) 
+				{
+					if (setenv(args[1], args[2], 1) != 0)
+						fprintf(stderr, "Error setting environment variable: %s\n", args[1]);
+				} 
+				
+				else 
+					fprintf(stderr, "Usage: setenv VARIABLE VALUE\n");
+			} 
+			
+			else if (strcmp(args[0], "unsetenv") == 0) 
+			{
+				if (num_args == 2) 
+				{
+					if (unsetenv(args[1]) != 0)
+						fprintf(stderr, "Error unsetting environment variable: %s\n", args[1]);
+				} 
+				
+				else 
+					fprintf(stderr, "Usage: unsetenv VARIABLE\n");
+				else
+					execute_command(args);
+			}
 		}
-	}
 	
 	return (0);
 }
