@@ -93,7 +93,7 @@ int execute_command(char *args[])
  * Return: 0
  */
 
-int main(void) 
+int main() 
 {
 	char input[MAX_INPUT_LENGTH];
 	char *args[MAX_ARGS];
