@@ -2,7 +2,14 @@
 
 extern char **environ;
 
-int main() 
+/**
+* main -
+* env:
+*
+* Return: 0
+*/
+
+int main(void) 
 {
     char **env = environ;
     while (*env != NULL) 
@@ -11,5 +18,5 @@ int main()
         env++;
     }
 
-    return 0;
+    return (0);
 }

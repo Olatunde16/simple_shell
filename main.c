@@ -2,8 +2,12 @@
 
 /**
  * main - This is the main function of the Simple Shell
+ * 
+ * input:
+ * args:
  * num_args: Used to Keep track of the number of arguments
  * provided by the user.
+ * 
  *
  * Return: 0
  */

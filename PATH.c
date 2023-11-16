@@ -44,6 +44,24 @@ char *get_command_path(char *command)
 	return (NULL);
 }
 
+/**
+ * execute_command - Executes a command in a child process.
+ *
+ * This function creates a child process using fork() and attempts
+ * to execute the command specified in the args array. If the 
+ * command is found and executed successfully,the parent process
+ * waits for the child process to complete and retrieves its exit 
+ * status.If the command execution fails, an error message is printed.
+ *
+ * args: An array of strings where the first element is the command 
+ * and the subsequent elements are its arguments. The last element 
+ * should be NULL as required by execvp().
+ *
+ * Return:
+ * - Returns the exit status of the child process if the command was 
+ *   executed successfully.
+ * - Returns -1 if fork() fails.
+ */
 int execute_command(char *args[]) 
 {
 	char *command_path = get_command_path(args[0]);
