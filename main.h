@@ -20,12 +20,13 @@ typedef struct
 Alias aliases[MAX_ALIASES];
 int num_aliases = 0;
 
+int main(void)
 char *custom_getline();
 void print_aliases(void);
 void print_alias(char *name);
 void define_alias(char *name, char *value);
 void execute_commands_from_file(const char *filename);
-void main(int argc, char *argv[]);
+void main2(int argc, char *argv[]);
 char *get_command_path(char *command);
 int execute_command(char *args[]);
 void tokenize_input(char *input, char *args[]);
