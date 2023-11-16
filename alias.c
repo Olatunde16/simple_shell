@@ -17,7 +17,7 @@ void print_aliases(void)
 
 /**
 * print_alias: Prints a specific alias by name.
-* name:
+* name: The name of the alias to be printed
 * Return: NULL
 */
 
@@ -33,9 +33,29 @@ void print_alias(char *name)
 }
 
 /**
+* add_alias - Adds a new alias to the array of defined aliases.
+* name: The name of the new alias
+* value: The value of the new alias.
+* Return: NULL
+*/
+
+void add_alias(char *name, char *value) 
+{
+    if (alias_count < MAX_ALIAS_COUNT) 
+    {
+        strcpy(alias_list[alias_count].name, name);
+        strcpy(alias_list[alias_count].value, value);
+        alias_count++;
+    } 
+    else {
+        printf("Alias limit reached. Cannot add more aliases.\n");
+    }
+}
+
+/**
 * define_alias: Defines or redefines an alias with a given name and value.
-* name:
-* value:
+* name: The name of the alias.
+* value: The value of the alias.
 *
 * Return: NULL
 */
