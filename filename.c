@@ -122,7 +122,7 @@ void execute_commands_from_file(const char *filename)
 * Return: 0
 */
 
-void main(int argc, char *argv[]) 
+void main2(int argc, char *argv[]) 
 {
 	if (argc == 2) 
 		execute_commands_from_file(argv[1]);
