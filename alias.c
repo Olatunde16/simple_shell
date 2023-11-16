@@ -1,16 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include "main.h"
 
 /**
 * main - Checks if user entered "alias" command
 * print_aliases: Prints all aliases.
-* print_alias: Prints a specific alias by name.
-* define_alias: Defines or redefines an alias with a given name and value.
 *
-* Return: 0
+* Return: NULL
 */
 
 void print_aliases(void) 
@@ -20,6 +14,12 @@ void print_aliases(void)
         printf("%s='%s'\n", aliases[i].name, aliases[i].value);
     }
 }
+
+/**
+* print_alias: Prints a specific alias by name.
+* name:
+* Return: NULL
+*/
 
 void print_alias(char *name) 
 {
@@ -31,6 +31,14 @@ void print_alias(char *name)
     }
     printf("Alias '%s' not found.\n", name);
 }
+
+/**
+* define_alias: Defines or redefines an alias with a given name and value.
+* name:
+* value:
+*
+* Return: NULL
+*/
 
 void define_alias(char *name, char *value) 
 {
@@ -69,6 +77,7 @@ void define_alias(char *name, char *value)
  *
  * Return: 0
  */
+
 int main(void) 
 {
     char input[MAX_INPUT_LENGTH];
@@ -141,5 +150,5 @@ int main(void)
         }
     }
 
-    return 0;
+    return (0);
 }
