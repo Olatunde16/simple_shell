@@ -53,7 +53,20 @@ void define_alias(char *name, char *value)
     }
 }
 
-int main() 
+/**
+ * main - The main function of the simple shell program.
+ * It handles user's input, executes command, and
+ * manages processes.
+ *
+ * input: A character array to store the user's input 
+ * and tokenize the input in the simple shell
+ *
+ * args: the array of strings where the tokenized
+ * input will be stored
+ *
+ * Return: 0
+ */
+int main(void) 
 {
     char input[MAX_INPUT_LENGTH];
     char *args[MAX_ARGS];
