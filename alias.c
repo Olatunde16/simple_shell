@@ -158,29 +158,40 @@ int main(void)
 				{
 					num_args = 0;
 					token = strtok(token, " ");
-                    while (token != NULL) {
-                        args[num_args++] = token;
-                        token = strtok(NULL, " ");
-                    }
-                    args[num_args] = NULL;
-                    result = execute_command(args);
-                }
-            } else if (result != 0 && strstr(input, "||") != NULL) {
-                token = strtok(input, "||");
-                token = strtok(NULL, "||");
-                if (token != NULL) {
-                    num_args = 0;
-                    token = strtok(token, " ");
-                    while (token != NULL) {
-                        args[num_args++] = token;
-                        token = strtok(NULL, " ");
-                    }
-                    args[num_args] = NULL;
-                    result = execute_command(args);
-                }
-            }
-        }
-    }
-
-    return (0);
+					
+					while (token != NULL) 
+					{
+						args[num_args++] = token;
+						token = strtok(NULL, " ");
+					}
+					
+					args[num_args] = NULL;
+					result = execute_command(args);
+				}
+			} 
+			
+			else if (result != 0 && strstr(input, "||") != NULL) 
+			{
+				token = strtok(input, "||");
+				token = strtok(NULL, "||");
+				
+				if (token != NULL) 
+				{
+					num_args = 0;
+					token = strtok(token, " ");
+					
+					while (token != NULL) 
+					{
+						args[num_args++] = token;
+						token = strtok(NULL, " ");
+					}
+					
+					args[num_args] = NULL;
+					result = execute_command(args);
+				}
+			}
+		}
+	}
+	
+	return (0);
 }
