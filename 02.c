@@ -11,6 +11,9 @@
  * args: An array of strings representing command-line 
  * arguments in the simple shell.
  *
+ * num_args: An integer variable that represents the count
+ * of arguments in an array.
+ * token: A pointer to a character
  * Return: NULL
  */
 
@@ -87,7 +90,7 @@ int execute_command(char *args[])
  * input: A character array to store the user's input 
  * and tokenize the input in the simple shell
  *
- * args: the array of strings where the tokenized
+ * args: The array of strings where the tokenized
  * input will be stored
  *
  * Return: 0
