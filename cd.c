@@ -76,10 +76,15 @@ int execute_command(char *args[])
 }
 
 /**
- * change_directory - 
- * new_dir:
+ * change_directory - Changes the current working directory of the process.
  *
- * Return:
+ * This function changes the current working directory of the process to the specified
+ * directory. It also updates the environment variable PWD to reflect the new directory.
+ * If the directory change is unsuccessful, an error message is printed using perror.
+ * 
+ * new_dir: A character array representing the target directory path.
+ *
+ * Return: NULL
  */
 
 void change_directory(char *new_dir) 
