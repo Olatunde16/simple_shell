@@ -44,12 +44,20 @@ int execute_command(char *args[])
 }
 
 /**
- * main - 
+ * main - The main function of the simple shell program.
+ * It handles user's input, executes command, and
+ * manages processes.
  *
- * input:
- * args:
+ * input: A character array to store the user's input 
+ * and tokenize the input in the simple shell
  *
- * Return:
+ * args: the array of strings where the tokenized
+ * input will be stored
+ *
+ * num_args: Used to Keep track of the number of arguments
+ * provided by the user.
+ *
+ * Return: 0
  */
 
 int main(void) 
