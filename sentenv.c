@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include "main.h"
 
-void execute_command(char *args[]) {
-    pid_t pid = fork();
+void execute_command(char *args[]) 
+{
+	pid_t pid = fork();
 
     if (pid == 0) {
         execvp(args[0], args);
@@ -21,7 +22,8 @@ void execute_command(char *args[]) {
     }
 }
 
-void execute_commands_from_file(const char *filename) {
+void execute_commands_from_file(const char *filename) 
+{
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         perror("Error opening file");
