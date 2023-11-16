@@ -29,7 +29,7 @@ void print_alias(char *name)
 			return;
 		}
 	}
-	
+
 	printf("Alias '%s' not found.\n", name);
 }
 
@@ -123,6 +123,7 @@ int main(void)
 		else if (strstr(input, "alias ") == input) 
 		{
 			char *alias_name = input + strlen("alias ");
+			
 			print_alias(alias_name);
 		} 
 		
@@ -131,8 +132,9 @@ int main(void)
 			char *alias_def = input + strlen("alias ");
 			char *name = strtok(alias_def, "='");
 			char *value = strtok(NULL, "'");
+			
 			define_alias(name, value);
-		} 
+		}
 		
 		else 
 		{
