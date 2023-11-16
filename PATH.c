@@ -229,7 +229,8 @@ char *get_command_path(char *command)
  *   executed successfully.
  * - Returns -1 if fork() fails.
  */
-int execute_command(char *args[]) 
+
+void execute_command(char *args[]) 
 {
 	char *command_path = get_command_path(args[0]);
 	
