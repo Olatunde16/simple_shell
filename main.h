@@ -8,6 +8,7 @@
 #define MAX_ALIASES 64
 #define MAX_ALIAS_NAME 64
 #define MAX_ALIAS_VALUE 256
+#define MAX_ALIAS_COUNT 64
 
 typedef struct 
 {
