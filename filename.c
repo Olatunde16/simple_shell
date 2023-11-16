@@ -122,6 +122,15 @@ int main(int argc, char *argv[])
 			
 			input[strlen(input) - 1] = '\0';
 			
+			if (input[0] == '#' || input[0] == '\0')
+				continue;
+
+			if (input[0] == ';' || input[0] == '\0')
+				continue;
+
+			if (input[0] == '*' || input[0] == '\0')
+				continue;
+			
 			char *args[MAX_ARGS];
 			int num_args = 0;
 			char *token = strtok(input, " ");
