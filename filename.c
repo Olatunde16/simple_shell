@@ -1,5 +1,16 @@
 #include "main.h"
 
+/*
+ * execute_command - Executes a command in a child process.
+ *
+ * This function takes an array of command arguments ('args') and forks a
+ * child process to execute the specified command using execvp. It waits for
+ * the child process to complete and prints the exit status.
+ *
+ *   args: An array of strings representing the command and its arguments.
+ * Return: NULL
+ */
+
 void execute_command(char *args[]) 
 {
     pid_t pid = fork();
@@ -27,6 +38,18 @@ void execute_command(char *args[])
         perror("Fork failed");
     }
 }
+
+/*
+ * execute_commands_from_file - Executes commands from a file.
+ *
+ * This function takes a filename as input, opens the file, and reads lines
+ * containing commands. It tokenizes each line into arguments and executes
+ * the command using execute_command function.
+ *
+ * filename: The name of the file containing commands.
+ * 
+ * Return: NULL
+ */
 
 void execute_commands_from_file(const char *filename) 
 {
@@ -60,6 +83,20 @@ void execute_commands_from_file(const char *filename)
 
     fclose(file);
 }
+
+/**
+* main - The main function of the simple shell.
+* 
+* This function is the entry point of the simple shell. If a filename is
+* provided as a command-line argument, it reads and executes commands from
+* that file. Otherwise, it displays a prompt, waits for user input, and
+* executes commands entered by the user. 
+* It handles the end of file (Ctrl+D).
+* 
+* argc: A parameter for handling command-line arguments
+* argv: A parameter for handling command-line arguments
+* Return: 0
+*/
 
 int main(int argc, char *argv[]) 
 {
@@ -106,5 +143,5 @@ int main(int argc, char *argv[])
         }
     }
 
-    return 0;
+    return (0);
 }
