@@ -1,19 +1,19 @@
 #include "main.h"
 
-/*
+/**
  * execute_command - Executes a command in a child process.
  *
  * This function takes an array of command arguments ('args') and forks a
  * child process to execute the specified command using execvp. It waits for
  * the child process to complete and prints the exit status.
  *
- *   args: An array of strings representing the command and its arguments.
+ * args: An array of strings representing the command and its arguments.
  * Return: NULL
  */
 
 void execute_command(char *args[]) 
 {
-    pid_t pid = fork();
+	pid_t pid = fork();
 
     if (pid == 0) 
     {
