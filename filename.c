@@ -115,6 +115,10 @@ void execute_commands_from_file(const char *filename)
 * 
 * argc: A parameter for handling command-line arguments
 * argv: A parameter for handling command-line arguments
+* 
+* num_args: Used to Keep track of the number of arguments
+* provided by the user.
+* token: A pointer to a character or string
 * Return: 0
 */
 
