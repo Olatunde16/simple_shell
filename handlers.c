@@ -55,6 +55,9 @@ int execute_command(char *args[])
  * args: the array of strings where the tokenized
  * input will be stored
  *
+ * num_args: Used to Keep track of the number of arguments
+ * provided by the user.
+ *
  * Return: 0
  */
 int main(void) 
