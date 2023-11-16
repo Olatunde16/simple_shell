@@ -19,7 +19,7 @@
  * - Returns -1 if fork() fails.
  */
 
-int execute_command(char *args[]) 
+void execute_command(char *args[]) 
 {
 	pid_t pid = fork();
 	
