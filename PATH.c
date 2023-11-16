@@ -150,15 +150,11 @@ int main(void)
 			int result = execute_command(args);
 			
 			if (result == -1) 
-			{
 				printf("Failed to execute command\n");
-			}
 		} 
 		
 		else 
-		{
 			printf("Command '%s' not found\n", args[0]);
-		}
 	}
 	
 	return (0);
