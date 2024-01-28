@@ -1,62 +1,44 @@
 #include "main.h"
 
 /**
- * main - The main function of the simple shell program.
- * It handles user's input, executes command, and
- * manages processes.
+ * main - entry point
+ * @ac: arg count
+ * @av: arg vector
  *
- * input: A character array to store the user's input 
- * and tokenize the input in the simple shell
- *
- * args: the array of strings where the tokenized
- * input will be stored
- *
- * num_args: Used to Keep track of the number of arguments
- * provided by the user.
- *
- * Return: 0
+ * Return: 0 on success, 1 on error
  */
-
-int main(void)
+int main(int ac, char **av)
 {
-	char input[MAX_INPUT_LENGTH];
-	char *args[MAX_ARGS];
-	int num_args;	
-	
-	while (1) 
+	info_t info[] = { INFO_INIT };
+	int fd = 2;
+
+	asm ("mov %1, %0\n\t"
+		"add $3, %0"
+		: "=r" (fd)
+		: "r" (fd));
+
+	if (ac == 2)
 	{
-		printf("Simple-Shell (PID: %d)> ", getpid());
-		fgets(input, MAX_INPUT_LENGTH, stdin);
-		input[strlen(input) - 1] = '\0';
-		
-		if (strcmp(input, "exit") == 0) 
-			break;
-		
-		char *token = strtok(input, " ");
-		num_args = 0;
-		
-		while (token != NULL) 
+		fd = open(av[1], O_RDONLY);
+		if (fd == -1)
 		{
-			args[num_args++] = token;
-			token = strtok(NULL, " ");
+			if (errno == EACCES)
+				exit(126);
+			if (errno == ENOENT)
+			{
+				_eputs(av[0]);
+				_eputs(": 0: Can't open ");
+				_eputs(av[1]);
+				_eputchar('\n');
+				_eputchar(BUF_FLUSH);
+				exit(127);
+			}
+			return (EXIT_FAILURE);
 		}
-		
-		args[num_args] = NULL;
-		pid_t pid = fork();
-		
-		if (pid == 0) 
-		{
-			execvp(args[0], args);
-			perror("Command not found");
-			exit(1);
-		} 
-		
-		else if (pid > 0) 
-			wait(NULL);
-		
-		else 
-			perror("Fork failed");
+		info->readfd = fd;
 	}
-	
-	return (0);
+	populate_env_list(info);
+	read_history(info);
+	hsh(info, av);
+	return (EXIT_SUCCESS);
 }
